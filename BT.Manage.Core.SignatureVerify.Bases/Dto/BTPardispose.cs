@@ -10,6 +10,7 @@ using BT.Manage.Base;
 using BT.Manage.Frame.Base;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
+using System.Web;
 
 namespace BT.Manage.Core.SignatureVerify.Base
 {
@@ -77,11 +78,13 @@ namespace BT.Manage.Core.SignatureVerify.Base
         /// <returns></returns>
         public static bool TimeSpan(this long timestamp)
         {
+            //请求开始时间
             DateTime dt = GetDateTimeFrom1970Ticks(timestamp);
             //取现在时间
-            //DateTime dt1 = DateTime.Now ;
-            DateTime dt2 = DateTime.Now.AddMinutes(1);
-            if (dt < dt2)
+            DateTime dt1 = DateTime.Now ;
+            //加一分种 
+            DateTime dt2 = dt.AddMinutes(1);
+            if (dt < dt1 && dt1 < dt2) 
             {
                 return true;
             }
@@ -98,8 +101,8 @@ namespace BT.Manage.Core.SignatureVerify.Base
         /// <returns>C#格式时间</returns>
         public static DateTime GetDateTimeFrom1970Ticks(this long curSeconds)
         {
-            DateTime dtStart = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
-            return dtStart.AddSeconds(curSeconds);
+            DateTime dtStart = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1)); 
+            return dtStart.AddMilliseconds(curSeconds);
         }
 
 
@@ -116,7 +119,14 @@ namespace BT.Manage.Core.SignatureVerify.Base
             foreach (var child in jobect.Children())
             {
                 var proper = child as JProperty;
-                RequestPar.Add(proper.Name, proper.Value.ToString());
+                if (proper.Value.ToString().Contains("{") || proper.Value.ToString().Contains("[")) 
+                {
+                    var data = Newtonsoft.Json.JsonConvert.DeserializeObject(HttpUtility.UrlDecode(proper.Value.ToString()));
+                    RequestPar.Add(proper.Name, Newtonsoft.Json.JsonConvert.SerializeObject(data));
+                    continue;
+                }
+                //解析socket流 HttpUtility.UrlDecode()解码
+                RequestPar.Add( proper.Name,HttpUtility.UrlDecode(proper.Value.ToString()));
             }
         }
 
@@ -171,6 +181,29 @@ namespace BT.Manage.Core.SignatureVerify.Base
             var r = new JsonResult(result);
             r.StatusCode = (int)HttpStatusCode.OK;
             action.Result = r;
+        }
+
+        /// <summary>
+        /// 将post请求 form 表单提交数据转化 位字典集合
+        /// </summary>
+        /// <param name="str">form表单提交数据字符串</param>
+        /// <param name="pairs">字典集合</param>
+        public static void FormStringToDic(this string str, ref Dictionary<string, string> RequestPar)
+        {
+            if (str == "" || str == null)
+                return;
+            var RmovovIn = str.Split(new char[] { '&' });
+            foreach (var i in RmovovIn)
+            {
+                var Equal = i.Split(new char[] { '=' });
+                if (Equal.Count() == 1)
+                {
+                    RequestPar.Add(Equal[0], "");
+                    continue;
+                }
+                //解析socket流 HttpUtility.UrlDecode()解码
+                RequestPar.Add(HttpUtility.UrlDecode(Equal[0]), HttpUtility.UrlDecode(Equal[1]));
+            }
         }
 
     }

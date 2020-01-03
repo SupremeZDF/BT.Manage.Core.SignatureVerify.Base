@@ -5,6 +5,8 @@ using BT.Manage.Frame.Base;
 using BT.Manage.Core.SignatureVerify.Base;
 using System.IO;
 using System.Linq;
+using System.Text;
+using System.Web;
 
 namespace BT.Manage.Core.SignatureVerify.Base
 {
@@ -14,9 +16,9 @@ namespace BT.Manage.Core.SignatureVerify.Base
         /// <summary>
         ///  密钥
         /// </summary>
-        private readonly static string BTApiKey = "sss";
+        private readonly static string BTApiKey = ReadJsonConfig.GetConfig().GetSettingNode("ApiKey");
 
-        public virtual void OnActionExecuting(ActionExecutingContext context)
+        public override void OnActionExecuting(ActionExecutingContext context)
         {
             Result result = new Result();
             HttpRequest request = context.HttpContext.Request;
@@ -32,22 +34,44 @@ namespace BT.Manage.Core.SignatureVerify.Base
                 Dictionary<string, string> RequestPar = new Dictionary<string, string>();
                 if (method == "POST")
                 {
-                    //初始化System.IO的新实例。内存流类，其可扩展容量初始化为零。
-                    Stream stream = request.Body;
-                    string postData = string.Empty;
-                    StreamReader streamReader = new StreamReader(stream);
-                    postData = streamReader.ReadToEnd();
+                    //在内存中创建缓冲区存放Request.Body的内容，从而允许反复读取Request.Body的Stream canseek 是否可以访问流中的某个位置,正文可以多次读取多次
+                    request.EnableBuffering();
+                    //重新定义流的位置,读取全部的数据
+                    request.Body.Position = 0;
+                    var postRequestStream = new StreamReader(request.Body, Encoding.Default);
+                    var postData = postRequestStream.ReadToEnd();
+                    //重置指针 流已到尾部
+                    request.Body.Position = 0;
+                    //关闭流
+                    postRequestStream.Close();
                     string jsonData = postData.TrimStart('"').TrimEnd('"').Replace(@"\", "");
                     //获取 post 请求参数集合
-                    jsonData.ReqParamesToDic(ref RequestPar);
+                    if (jsonData.Contains("&") || jsonData.Contains("="))
+                    {
+                        
+                        jsonData.FormStringToDic(ref RequestPar);
+                    }
+                    else
+                    {
+                        jsonData.ReqParamesToDic(ref RequestPar);
+                    }
                 }
                 if (method == "GET")
+
                 {
                     var GetRequestPar = request.Query.Keys.ToArray();
+                    //var getForm = request.;
+
                     foreach (var item in GetRequestPar)
                     {
-                        var val = request.Query[item].ToString();
-                        RequestPar.Add(item, val);
+                        var val =   request.Query[item].ToString();
+                        if (val.IndexOf("'") == -1 || val.IndexOf("{") != -1)
+                        {
+                            RequestPar.Add(item, val);
+                            continue;
+                        }
+                        var valRelase = val.Replace("'", "");
+                        RequestPar.Add(item, valRelase);
                     }
                 }
 
@@ -102,7 +126,7 @@ namespace BT.Manage.Core.SignatureVerify.Base
             }
             timeSpan = long.Parse(context.HttpContext.Request.Headers["timespan"].ToString());
             signature = context.HttpContext.Request.Headers["signature"].ToString();
-            if (timeSpan.ToString().Length != 10)
+            if (timeSpan.ToString().Length != 13)
             {
                 context.ExecutingExtend("时间戳格式有误", StatusCodeEnum.TimeSpanError);
                 return false;

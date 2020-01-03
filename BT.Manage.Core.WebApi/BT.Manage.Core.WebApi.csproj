@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="2.8.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" />
   </ItemGroup>
@@ -19,7 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BT.Manage.Core.SignatureVerify.Base\BT.Manage.Core.SignatureVerify.Base.csproj" />
+    <ProjectReference Include="..\BT.Manage.Core.SignatureVerify.Bases\BT.Manage.Core.SignatureVerify.Base.csproj" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties Properties_4launchSettings_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -7,7 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using BT.Manage.Core.SignatureVerify.Base;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Cors;
 
 namespace BT.Manage.Core.WebApi
 {
@@ -24,6 +26,20 @@ namespace BT.Manage.Core.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            // services.AddMvc(config => config.Filters.Add(new BTPortVerify()));
+
+            services.AddCors(opotions => 
+            {
+                opotions.AddPolicy("any", builer =>
+                 {
+                     builer.AllowAnyOrigin()
+                     .AllowAnyHeader()
+                     .AllowAnyMethod()
+                     .AllowCredentials();
+                 });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,6 +49,8 @@ namespace BT.Manage.Core.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("any");
 
             app.UseMvc();
         }

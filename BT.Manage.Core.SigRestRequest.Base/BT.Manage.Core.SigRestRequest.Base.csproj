@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>BT.Manage.Core.SigRestRequest.Base</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BT.Manage.Core.NetCore" Version="2.2.8.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="RestSharp">
+      <HintPath>..\..\..\..\..\..\公司项目\A_S_OutSideService\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

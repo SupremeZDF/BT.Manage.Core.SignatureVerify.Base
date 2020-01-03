@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.960
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BT.Manage.Core.SignatureVerify.Base", "BT.Manage.Core.SignatureVerify.Base\BT.Manage.Core.SignatureVerify.Base.csproj", "{F9E7FB0C-15E7-4D82-BEF9-91BDE62CE428}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BT.Manage.Core.WebApi", "BT.Manage.Core.WebApi\BT.Manage.Core.WebApi.csproj", "{8F1CCF7D-3C66-4ECD-A579-6B802B78F327}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BT.Manage.Core.WebApi", "BT.Manage.Core.WebApi\BT.Manage.Core.WebApi.csproj", "{8F1CCF7D-3C66-4ECD-A579-6B802B78F327}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BT.Manage.Core.SigRestRequest.Base", "BT.Manage.Core.SigRestRequest.Base\BT.Manage.Core.SigRestRequest.Base.csproj", "{B1AA9386-7623-418A-9F15-665F5952140E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BT.Manage.Core.SignatureVerify.Base", "BT.Manage.Core.SignatureVerify.Bases\BT.Manage.Core.SignatureVerify.Base.csproj", "{64E9184A-EBCC-40C2-A0AE-7209C7A4E4C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestRequestCeShi", "RestRequestCeShi\RestRequestCeShi.csproj", "{956DC4A0-463F-4879-921E-BE14252561F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F9E7FB0C-15E7-4D82-BEF9-91BDE62CE428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9E7FB0C-15E7-4D82-BEF9-91BDE62CE428}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9E7FB0C-15E7-4D82-BEF9-91BDE62CE428}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9E7FB0C-15E7-4D82-BEF9-91BDE62CE428}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8F1CCF7D-3C66-4ECD-A579-6B802B78F327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8F1CCF7D-3C66-4ECD-A579-6B802B78F327}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F1CCF7D-3C66-4ECD-A579-6B802B78F327}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F1CCF7D-3C66-4ECD-A579-6B802B78F327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1AA9386-7623-418A-9F15-665F5952140E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1AA9386-7623-418A-9F15-665F5952140E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1AA9386-7623-418A-9F15-665F5952140E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1AA9386-7623-418A-9F15-665F5952140E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64E9184A-EBCC-40C2-A0AE-7209C7A4E4C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64E9184A-EBCC-40C2-A0AE-7209C7A4E4C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64E9184A-EBCC-40C2-A0AE-7209C7A4E4C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64E9184A-EBCC-40C2-A0AE-7209C7A4E4C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{956DC4A0-463F-4879-921E-BE14252561F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{956DC4A0-463F-4879-921E-BE14252561F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{956DC4A0-463F-4879-921E-BE14252561F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{956DC4A0-463F-4879-921E-BE14252561F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

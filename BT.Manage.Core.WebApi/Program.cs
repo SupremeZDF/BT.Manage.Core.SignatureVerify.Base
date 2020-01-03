@@ -14,6 +14,7 @@ namespace BT.Manage.Core.WebApi
     {
         public static void Main(string[] args)
         {
+
             BuildWebHost(args).Run();
         }
 
