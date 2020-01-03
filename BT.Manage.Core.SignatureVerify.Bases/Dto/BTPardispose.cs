@@ -157,7 +157,7 @@ namespace BT.Manage.Core.SignatureVerify.Base
             }
             foreach (var parame in parames)
             {
-                var keystr = parame.Key.Split(new char[] { '.' });
+                var keystr = parame.Key.Split(new char[] { '时.' });
                 if (keystr.Count() == 1)
                 {
                     RequestPar.Add(parame.Key, parame.Value);
