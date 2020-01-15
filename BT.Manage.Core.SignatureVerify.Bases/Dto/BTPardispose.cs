@@ -118,7 +118,7 @@ namespace BT.Manage.Core.SignatureVerify.Base
             var jobect = JObject.Parse(str); 
             foreach (var child in jobect.Children())
             {
-                var proper = child as JProperty; ssss
+                var proper = child as JProperty;
 
                 if (proper.Value.ToString().Contains("{") || proper.Value.ToString().Contains("[")) 
                 {
