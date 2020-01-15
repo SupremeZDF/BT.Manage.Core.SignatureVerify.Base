@@ -266,7 +266,7 @@ namespace BT.Manage.Core.SigRestRequest.Base
                     foreach (var paramedata in paramData)
                     {
                         request.AddParameter(paramedata.Key, paramedata.Value.ToString());
-                    }git
+                    }
                 }
             }
             return restClient.Execute(request);

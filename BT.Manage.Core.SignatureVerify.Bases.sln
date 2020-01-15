@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.960
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BT.Manage.Core.WebApi", "BT.Manage.Core.WebApi\BT.Manage.Core.WebApi.csproj", "{8F1CCF7D-3C66-4ECD-A579-6B802B78F327}"
 EndProject
@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BT.Manage.Core.SigRestReque
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BT.Manage.Core.SignatureVerify.Base", "BT.Manage.Core.SignatureVerify.Bases\BT.Manage.Core.SignatureVerify.Base.csproj", "{64E9184A-EBCC-40C2-A0AE-7209C7A4E4C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestRequestCeShi", "RestRequestCeShi\RestRequestCeShi.csproj", "{956DC4A0-463F-4879-921E-BE14252561F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BT.Manage.NetCore.NLog.Base", "..\..\BT.Manage.Core.SignatureVerify.Base\BT.Manage.Core.SignatureVerify.Base\BT.Manage.NetCore.NLog.Base\BT.Manage.NetCore.NLog.Base.csproj", "{B3272D41-C407-444B-833E-9446947FE131}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BT.Manage.AspNet.Token.Base", "BT.Manage.Core.Token.Base\BT.Manage.AspNet.Token.Base.csproj", "{C3FA29FA-4D92-41CD-A656-15047E93F4AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BT.Manage.AspNet.Cors.Base", "BT.Manage.AspNet.Cors.Base\BT.Manage.AspNet.Cors.Base.csproj", "{E725E8B5-16D4-4166-B107-0BED934EB876}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +33,18 @@ Global
 		{64E9184A-EBCC-40C2-A0AE-7209C7A4E4C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64E9184A-EBCC-40C2-A0AE-7209C7A4E4C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64E9184A-EBCC-40C2-A0AE-7209C7A4E4C6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{956DC4A0-463F-4879-921E-BE14252561F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{956DC4A0-463F-4879-921E-BE14252561F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{956DC4A0-463F-4879-921E-BE14252561F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{956DC4A0-463F-4879-921E-BE14252561F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3272D41-C407-444B-833E-9446947FE131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3272D41-C407-444B-833E-9446947FE131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3272D41-C407-444B-833E-9446947FE131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3272D41-C407-444B-833E-9446947FE131}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3FA29FA-4D92-41CD-A656-15047E93F4AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3FA29FA-4D92-41CD-A656-15047E93F4AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3FA29FA-4D92-41CD-A656-15047E93F4AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3FA29FA-4D92-41CD-A656-15047E93F4AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E725E8B5-16D4-4166-B107-0BED934EB876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E725E8B5-16D4-4166-B107-0BED934EB876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E725E8B5-16D4-4166-B107-0BED934EB876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E725E8B5-16D4-4166-B107-0BED934EB876}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

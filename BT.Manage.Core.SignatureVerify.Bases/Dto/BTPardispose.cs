@@ -115,10 +115,11 @@ namespace BT.Manage.Core.SignatureVerify.Base
         {
             if (str == null || str == "")
                 return;
-            var jobect = JObject.Parse(str);
+            var jobect = JObject.Parse(str); 
             foreach (var child in jobect.Children())
             {
-                var proper = child as JProperty;
+                var proper = child as JProperty; ssss
+
                 if (proper.Value.ToString().Contains("{") || proper.Value.ToString().Contains("[")) 
                 {
                     var data = Newtonsoft.Json.JsonConvert.DeserializeObject(HttpUtility.UrlDecode(proper.Value.ToString()));
@@ -157,7 +158,7 @@ namespace BT.Manage.Core.SignatureVerify.Base
             }
             foreach (var parame in parames)
             {
-                var keystr = parame.Key.Split(new char[] { '时.' });
+                var keystr = parame.Key.Split(new char[] { '.' });
                 if (keystr.Count() == 1)
                 {
                     RequestPar.Add(parame.Key, parame.Value);
