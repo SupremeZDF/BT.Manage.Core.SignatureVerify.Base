@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BT.Manage.Core.ExceptionFilter.Base
 {
-    public class ExcptionFilter
+    public class ExcptionFilter : Exception
     {
 
     }
