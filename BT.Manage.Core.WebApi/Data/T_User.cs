@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BT.Manage.Core.WebApi.Data
+﻿namespace BT.Manage.Core.WebApi.Data
 {
     public class T_User
     {

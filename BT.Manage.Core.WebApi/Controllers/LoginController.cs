@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using BT.Manage.Core.SignatureVerify.Base;
 using Microsoft.AspNetCore.Mvc;
-using BT.Manage.Core.SignatureVerify.Base;
 
 namespace BT.Manage.Core.WebApi.Controllers
 {
@@ -14,7 +9,7 @@ namespace BT.Manage.Core.WebApi.Controllers
     {
         [BTPortVerify]
         [HttpPost]
-        public string Run( )
+        public string Run()
         {
             return "1111";
         }

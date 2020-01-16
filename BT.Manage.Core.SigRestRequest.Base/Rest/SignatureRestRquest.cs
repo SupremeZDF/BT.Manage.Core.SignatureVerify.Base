@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
-using BT.Manage.Frame.Base;
+﻿using BT.Manage.Frame.Base;
 using RestSharp;
-using System.Linq;
+using System;
+using System.Collections.Generic;
 using System.Net;
-using System.Web;
+using System.Threading.Tasks;
 
 namespace BT.Manage.Core.SigRestRequest.Base
 {

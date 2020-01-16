@@ -1,17 +1,23 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("BT.Manage.AspNet.Cors.Base")]
-[assembly: AssemblyDescription("")]
+//说明
+[assembly: AssemblyDescription("weiapi跨域_作者_ZDF")]
+//配置
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+//Company 公司
+[assembly: AssemblyCompany("AK")]
+//Product 产品
 [assembly: AssemblyProduct("BT.Manage.AspNet.Cors.Base")]
+//Copyright 版权
 [assembly: AssemblyCopyright("Copyright ©  2020")]
+//Trademark 商标 标志
 [assembly: AssemblyTrademark("")]
+//Culture 文化
 [assembly: AssemblyCulture("")]
 
 // 将 ComVisible 设置为 false 会使此程序集中的类型

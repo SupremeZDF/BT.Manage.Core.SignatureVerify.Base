@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>2020</id>
+    <version>1.0.0.0</version>
+    <title>ajax跨域</title>
+    <authors>ZDF</authors>
+    <owners>$author$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <description>weiapi跨域_作者_ZDF</description>
+    <copyright>Copyright 2020</copyright>
+  </metadata>
+</package>

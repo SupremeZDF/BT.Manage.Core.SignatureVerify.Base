@@ -1,21 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
 namespace BT.Manage.AspNet.Token.Base
 {
-    [AttributeUsage(AttributeTargets.Class|AttributeTargets.Method,AllowMultiple =true,Inherited =true)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
     public class VerifyTokenAttribute : AuthorizeAttribute
     {
         /// <summary>
         /// 授权属性过滤属性
         /// </summary>
         /// <param name="actionContext"></param>
-        public override void OnAuthorization(HttpActionContext actionContext) 
+        public override void OnAuthorization(HttpActionContext actionContext)
         {
             var result = actionContext.Request;
             if (!result.Headers.Contains("AccessToken"))

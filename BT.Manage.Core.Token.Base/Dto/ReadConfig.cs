@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BT.Manage.AspNet.Token.Base
 {
@@ -38,7 +34,7 @@ namespace BT.Manage.AspNet.Token.Base
                 result.message = ex.Message;
                 return result;
             }
-            
+
         }
 
         /// <summary>
@@ -48,7 +44,7 @@ namespace BT.Manage.AspNet.Token.Base
         /// <param name="key"></param>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static Result SetkeyValue(string configPath, string key,string values)
+        public static Result SetkeyValue(string configPath, string key, string values)
         {
             Result result = new Result();
             try

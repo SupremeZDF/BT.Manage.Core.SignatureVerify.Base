@@ -1,15 +1,14 @@
-﻿using System;
-using System.Net;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Security.Cryptography;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using BT.Manage.Base;
-using BT.Manage.Frame.Base;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using BT.Manage.Frame.Base;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 
 namespace BT.Manage.Core.SignatureVerify.Base
@@ -81,10 +80,10 @@ namespace BT.Manage.Core.SignatureVerify.Base
             //请求开始时间
             DateTime dt = GetDateTimeFrom1970Ticks(timestamp);
             //取现在时间
-            DateTime dt1 = DateTime.Now ;
+            DateTime dt1 = DateTime.Now;
             //加一分种 
             DateTime dt2 = dt.AddMinutes(1);
-            if (dt < dt1 && dt1 < dt2) 
+            if (dt < dt1 && dt1 < dt2)
             {
                 return true;
             }
@@ -101,7 +100,7 @@ namespace BT.Manage.Core.SignatureVerify.Base
         /// <returns>C#格式时间</returns>
         public static DateTime GetDateTimeFrom1970Ticks(this long curSeconds)
         {
-            DateTime dtStart = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1)); 
+            DateTime dtStart = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
             return dtStart.AddMilliseconds(curSeconds);
         }
 
@@ -115,19 +114,19 @@ namespace BT.Manage.Core.SignatureVerify.Base
         {
             if (str == null || str == "")
                 return;
-            var jobect = JObject.Parse(str); 
+            var jobect = JObject.Parse(str);
             foreach (var child in jobect.Children())
             {
                 var proper = child as JProperty;
 
-                if (proper.Value.ToString().Contains("{") || proper.Value.ToString().Contains("[")) 
+                if (proper.Value.ToString().Contains("{") || proper.Value.ToString().Contains("["))
                 {
                     var data = Newtonsoft.Json.JsonConvert.DeserializeObject(HttpUtility.UrlDecode(proper.Value.ToString()));
                     RequestPar.Add(proper.Name, Newtonsoft.Json.JsonConvert.SerializeObject(data));
                     continue;
                 }
                 //解析socket流 HttpUtility.UrlDecode()解码
-                RequestPar.Add( proper.Name,HttpUtility.UrlDecode(proper.Value.ToString()));
+                RequestPar.Add(proper.Name, HttpUtility.UrlDecode(proper.Value.ToString()));
             }
         }
 

@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using BT.Manage.Core.SignatureVerify.Base;
-using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore.Cors;
 
 namespace BT.Manage.Core.WebApi
 {
@@ -29,7 +21,7 @@ namespace BT.Manage.Core.WebApi
 
             // services.AddMvc(config => config.Filters.Add(new BTPortVerify()));
 
-            services.AddCors(opotions => 
+            services.AddCors(opotions =>
             {
                 opotions.AddPolicy("any", builer =>
                  {

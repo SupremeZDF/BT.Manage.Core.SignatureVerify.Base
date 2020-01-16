@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BT.Manage.Core.SignatureVerify.Base
+﻿namespace BT.Manage.Core.SignatureVerify.Base
 {
     /// <summary>
     /// 接口校验返状态(返回码)

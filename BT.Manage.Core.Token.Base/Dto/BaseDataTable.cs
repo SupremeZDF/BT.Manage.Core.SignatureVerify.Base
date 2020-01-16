@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace BT.Manage.AspNet.Token.Base
 {
@@ -69,14 +66,14 @@ namespace BT.Manage.AspNet.Token.Base
             catch (Exception ex)
             {
 
-                return null ;
+                return null;
             }
         }
 
         public static bool NoSelect(string sql)
         {
             try
-            { 
+            {
                 int AffectCount = 0;
                 using (SqlConnection sqlConnection = new SqlConnection())
                 {

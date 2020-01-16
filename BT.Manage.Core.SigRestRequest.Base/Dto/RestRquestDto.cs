@@ -1,15 +1,9 @@
-﻿using System;
-using System.Net;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 using System.Security.Cryptography;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using BT.Manage.Base;
-using BT.Manage.Frame.Base;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.AspNetCore.Mvc;
+using System.Text;
 using System.Web;
 
 namespace BT.Manage.Core.SigRestRequest.Base
@@ -68,7 +62,7 @@ namespace BT.Manage.Core.SigRestRequest.Base
             foreach (var child in jobect.Children())
             {
                 var proper = child as JProperty;
-                if (proper.Value.ToString().Contains("{") || proper.Value.ToString().Contains("{")) 
+                if (proper.Value.ToString().Contains("{") || proper.Value.ToString().Contains("{"))
                 {
                     var data = Newtonsoft.Json.JsonConvert.DeserializeObject(HttpUtility.UrlDecode(proper.Value.ToString()));
                     RequestPar.Add(proper.Name, Newtonsoft.Json.JsonConvert.SerializeObject(data));

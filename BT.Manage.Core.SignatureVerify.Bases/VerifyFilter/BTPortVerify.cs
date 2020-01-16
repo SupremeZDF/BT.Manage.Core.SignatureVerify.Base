@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using BT.Manage.Frame.Base;
 using Microsoft.AspNetCore.Http;
-using BT.Manage.Frame.Base;
-using BT.Manage.Core.SignatureVerify.Base;
+using Microsoft.AspNetCore.Mvc.Filters;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Web;
 
 namespace BT.Manage.Core.SignatureVerify.Base
 {
@@ -48,7 +46,7 @@ namespace BT.Manage.Core.SignatureVerify.Base
                     //获取 post 请求参数集合
                     if (jsonData.Contains("&") || jsonData.Contains("="))
                     {
-                        
+
                         jsonData.FormStringToDic(ref RequestPar);
                     }
                     else
@@ -64,7 +62,7 @@ namespace BT.Manage.Core.SignatureVerify.Base
 
                     foreach (var item in GetRequestPar)
                     {
-                        var val =   request.Query[item].ToString();
+                        var val = request.Query[item].ToString();
                         if (val.IndexOf("'") == -1 || val.IndexOf("{") != -1)
                         {
                             RequestPar.Add(item, val);
