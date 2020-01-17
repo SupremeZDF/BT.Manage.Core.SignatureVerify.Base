@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace TaskNetCore3._0.WebApi
+namespace NETCORE.WEAPI
 {
     public class Program
     {

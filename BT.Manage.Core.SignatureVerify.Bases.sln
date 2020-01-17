@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BT.Manage.Core.ExceptionFil
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BT.Manage.NetCore.NLog.Base", "BT.Manage.NetCore.NLog.Base\BT.Manage.NetCore.NLog.Base.csproj", "{9ED42C85-6964-48C9-882B-47841B41A65B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskNetCore.WebApi", "TaskNetCore3.0.WebApi\TaskNetCore.WebApi.csproj", "{DFDC3861-6A81-4EE6-A8F3-CC1CFB208745}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCORE.WEAPI", "NETCORE.WEAPI\NETCORE.WEAPI.csproj", "{0B26BDF1-5359-42AE-9183-5542D79DD8DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,10 @@ Global
 		{9ED42C85-6964-48C9-882B-47841B41A65B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ED42C85-6964-48C9-882B-47841B41A65B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9ED42C85-6964-48C9-882B-47841B41A65B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DFDC3861-6A81-4EE6-A8F3-CC1CFB208745}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFDC3861-6A81-4EE6-A8F3-CC1CFB208745}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFDC3861-6A81-4EE6-A8F3-CC1CFB208745}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFDC3861-6A81-4EE6-A8F3-CC1CFB208745}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B26BDF1-5359-42AE-9183-5542D79DD8DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B26BDF1-5359-42AE-9183-5542D79DD8DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B26BDF1-5359-42AE-9183-5542D79DD8DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B26BDF1-5359-42AE-9183-5542D79DD8DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

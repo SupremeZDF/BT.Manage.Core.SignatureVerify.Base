@@ -10,30 +10,42 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Identity;
+using Swashbuckle.AspNetCore.SwaggerUI;
+using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.Extensions.PlatformAbstractions;
+using System.IO;
 
-namespace TaskNetCore3._0.WebApi
+namespace NETCORE.WEAPI
 {
     public class Startup
     {
-        //注入服务 额外注入服务
-        public Startup(IConfiguration configuration, IWebHostEnvironment env)
+        public Startup(IConfiguration configuration)
         {
-            _env = env;
             Configuration = configuration;
         }
-
-        public readonly IWebHostEnvironment _env;
 
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        // 执行顺序 1  ConfigureServices  2  Configure
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
-
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Version = "v1.1.0",
+                    Title = "WebAPI",
+                    Description = "webapi框架",
+                    TermsOfService = null
+                }) ;
+                c.OperationFilter<AddSwaggerParameter>();
+                //c.DocInclusionPredicate((docName, description) => true);
+                //添加读取注释服务
+                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+                var xmlPath = Path.Combine(basePath, "Demo.xml");
+                c.IncludeXmlComments(xmlPath);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,12 +56,17 @@ namespace TaskNetCore3._0.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiHelp V1");
+            });
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
-            //app.ApplicationServices;
 
             app.UseEndpoints(endpoints =>
             {
