@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+<button type="button" id="btn" class="btn btn-success">（登录）Success</button>
+<button type="button" id="vx" class="btn btn-primary">（授权）Primary</button>
+<button type="button" id="tc" class="btn btn-primary">（退出登录）Primary</button>
+
+<script>
+    //登录
+    document.getElementById("btn").addEventListener("click", function () {
+        DenLu();
+    })
+    //退出登录
+    document.getElementById("tc").addEventListener("click", function () {
+        //清空缓存
+        localStorage.clear();
+    })
+
+    function DenLu() {
+        $.ajax({
+            type: "post",
+            url: "http://localhost:51704/Home/Run",
+            async: true,
+            dataType: "json",
+            data:
+            {
+                "FPsword": "123456",
+                "FAccount_Number": "123456"
+            },
+            //headers: {
+            //    "AccessToken": "afdf4748-63ce-484b-81d8-76569ece55f3"
+            //},
+            success: function (data) {
+                //alert("ss");
+                console.log(data);
+                //本地缓存
+                localStorage.setItem("AccessToken", data.object);
+                //AccessToken = data.object;
+            },
+            eerror: function (er) {
+                //alert("ss");
+                console.log(er);
+            }
+        });
+    }
+
+    //首次进入页面会判断是否存在已登录记录 本地缓存读取记录
+    YZAccessToken();
+
+    function YZAccessToken() {
+
+        if (localStorage.getItem("AccessToken") == null || localStorage.getItem("AccessToken") == "") {
+            //进入登录页面 方便为了测试 我直接调用登录按钮 执行事件
+            DenLu();
+        }
+        else {
+            $.ajax({
+                type: "post",
+                url: "http://localhost:51704/Home/YSAuthorizePort",
+                async: true,
+                dataType: "json",
+                //data:
+                //{
+                //    "FPsword": "123456",
+                //    "FAccount_Number": "123456"
+                //},
+                headers: {
+                    "AccessToken": localStorage.getItem("AccessToken")
+                },
+                success: function (data) {
+                    //alert("ss");
+                    console.log(data);
+                    //AccessToken = data.object;
+                },
+                eerror: function (er) {
+                    //alert("ss");
+                    console.log(er);
+                }
+            });
+        }
+    }
+
+    document.getElementById("vx").addEventListener("click", function () {
+
+        YZAccessToken();
+
+    })
+
+</script>

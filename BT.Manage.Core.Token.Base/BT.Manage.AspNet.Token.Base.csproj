@@ -35,9 +35,13 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\程序集\System.Web.Http.dll</HintPath>
+      <HintPath>..\..\..\程序集\4.0.20710.0\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\..\..\程序集\system.web.mvc\system.web.mvc_downcc\X86\4.0.20710.0\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,12 +55,14 @@
     <Compile Include="Dto\ReadConfig.cs" />
     <Compile Include="Dto\Results.cs" />
     <Compile Include="Dto\T_UserToken.cs" />
+    <Compile Include="MvcToken\VerifyMvcToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dto\Result.cs" />
-    <Compile Include="Token\VerifyTokenAttribute.cs" />
+    <Compile Include="WebApiToken\VerifyTokenAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
